@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#10161c">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/gauge.css">
+  <link rel="stylesheet" href="assets/ledger.css">
 </head>
 <body data-weather="none" data-counts-repo="RogerWillko/impersonator-weather" data-counts-branch="main" data-counts-path="counts.json">
   <canvas id="sky" aria-hidden="true"></canvas>
@@ -17,6 +18,7 @@
       <a href="https://scrollstime.com/">Night Grade</a>
       <a class="page-weather" href="./" aria-current="page">Fake Elon weather</a>
       <a href="compare.html">Readings</a>
+      <a href="contribute.html">Contribute</a>
       <a href="https://scrollstime.com/check.html">Check</a>
       <a href="https://scrollstime.com/method.html">Method</a>
       <a href="https://scrollstime.com/privacy.html">Privacy</a>
@@ -48,14 +50,30 @@
         </div>
       </section>
     </div>
+    <p class="visitor" id="visitor" hidden></p>
+    <section id="ledger-board" class="ledger" hidden>
+      <h2>Visitor ledger</h2>
+      <p class="fine">People who paid for one sweep. The note is theirs. The key is not stored. Amounts start in US dollars. Pounds, euros, and yuan use the 28 September 2026 conversion.</p>
+      <div class="currencies" role="group" aria-label="Currency">
+        <button type="button" data-currency="USD" aria-pressed="true">USD</button>
+        <button type="button" data-currency="GBP">GBP</button>
+        <button type="button" data-currency="EUR">EUR</button>
+        <button type="button" data-currency="CNY">CNY</button>
+      </div>
+      <ol id="donor-list"></ol>
+      <h3>Handles added by visitors</h3>
+      <div id="visitor-handles"></div>
+    </section>
     <footer class="foot">
       <details class="method">
         <summary>How a handle gets flagged</summary>
         <p>The nightly sweep reads X’s public people search for elon, musk, and maye. It does not log in, post, follow, or send a message. A handle is appended when the public signals add up to 4 or more: one character off <span class="mono">elonmusk</span> (4), account under 90 days (2), followers divided by following over 3 (1), empty bio (1), default picture (2), two companies in the bio (2), or Tesla plus SpaceX plus xAI in the same bio (3).</p>
         <p>Active means the account was under 90 days old on the day it was logged. Dormant means it was older. The station does not see whether they posted that day. The dial’s squall band is the low thousands of active flags. Banked dormant flags are the tens of thousands, and deep is the hundreds of thousands.</p>
         <p>A page with no accounts is a missed reading. The last count stays. A parsed page where nothing scores high is a real clear reading, and the number is zero. Known-good handles and bios that say parody, fan account, or not the real one stay off the log. This is a station score, not a finding that someone committed fraud.</p>
+        <p>A visitor sweep is a separate list. It does not change this dial. The dial stays on the station log.</p>
       </details>
       <p class="links">
+        <a href="contribute.html">Contribute a sweep</a>
         <a href="https://scrollstime.com/">Night Grade</a>
         <a href="compare.html">Public readings</a>
         <a id="repo" href="https://github.com/RogerWillko/impersonator-weather">Source</a>
@@ -64,6 +82,7 @@
       <noscript><p>This station paints the reading with JavaScript. The log file is counts.json.</p></noscript>
     </footer>
   </main>
+  <script src="assets/ledger.js"></script>
   <script src="assets/gauge.js"></script>
 </body>
 </html>

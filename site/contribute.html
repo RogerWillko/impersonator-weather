@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contribute · Fake Elon weather</title>
+  <meta name="description" content="Run one X search with your own API key. The key stays in this tab. The public ledger keeps the name, the note, and the handles.">
+  <meta name="theme-color" content="#10161c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/gauge.css">
+  <link rel="stylesheet" href="assets/contribute.css">
+  <link rel="stylesheet" href="assets/ledger.css">
+</head>
+<body data-weather="none">
+  <main class="screen">
+    <nav class="pages" aria-label="Site pages">
+      <a href="https://scrollstime.com/">Night Grade</a>
+      <a class="page-weather" href="./">Fake Elon weather</a>
+      <a href="compare.html">Readings</a>
+      <a href="contribute.html" aria-current="page">Contribute</a>
+      <a href="https://scrollstime.com/check.html">Check</a>
+      <a href="https://scrollstime.com/method.html">Method</a>
+      <a href="https://scrollstime.com/privacy.html">Privacy</a>
+    </nav>
+    <header class="mast">
+      <p class="kicker">One sweep · your key · public note</p>
+      <h1>Contribute a sweep</h1>
+      <p class="place">elon · musk · maye · at most 10 profiles each</p>
+    </header>
+
+    <section class="sweep" aria-labelledby="cost-title">
+      <h2 id="cost-title">Approximate cost</h2>
+      <p class="cost-line" id="ceiling">At most 30 profiles. About $0.30 · £0.23 · €0.26 · ¥2.01.</p>
+      <p class="fine">X bills US dollars, about $0.01 for each profile it returns. A full sweep is 3 words times 10 profiles, so the ceiling is $0.30. £0.23, €0.26, and ¥2.01 are an approximate conversion as of 28 September 2026. They are not a separate charge. After the sweep, the page shows the cost from the number of profiles returned. This site cannot ask X to confirm the bill.</p>
+      <p class="cost-line" id="spent" hidden></p>
+    </section>
+
+    <section class="sweep" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Privacy</h2>
+      <ul class="privacy-list">
+        <li>The key stays in this tab. This site and the ledger never receive it.</li>
+        <li>The browser sends the key only to https://api.x.com, with the words elon, musk, and maye.</li>
+        <li>The field is cleared when the sweep starts, and the page drops the key when the calls end.</li>
+        <li>What can be saved is a display name, a short note, the time, the profile count, and public handles that score 4 or higher.</li>
+        <li>The note is public. Words on a short block list are removed before it is saved, and again when the board is drawn.</li>
+        <li>Bios, follower counts, and the raw reply from X are not stored. A blank name is shown as A visitor. Each blank name stays its own row.</li>
+      </ul>
+    </section>
+
+    <form id="sweep" class="sweep" autocomplete="off" novalidate>
+      <label for="donor-name">Name on the ledger <span class="fine">optional</span></label>
+      <input id="donor-name" type="text" maxlength="32" autocomplete="off" spellcheck="false" autocapitalize="words">
+      <label for="donor-note">Note <span class="fine">optional, public, 140 characters</span></label>
+      <textarea id="donor-note" maxlength="140" autocomplete="off" spellcheck="true"></textarea>
+      <p class="fine">Leave the name blank and the row says A visitor.</p>
+      <label for="gate">X API key</label>
+      <input id="gate" type="password" autocomplete="off" spellcheck="false" autocapitalize="none" autocorrect="off" data-1p-ignore="true" data-lpignore="true" data-form-type="other">
+      <p class="fine">One use, in this tab, sent only to https://api.x.com. The field clears when the sweep starts. Decline the browser if it offers to save a password. This page has no account.</p>
+      <button type="button" id="run">Run one sweep</button>
+      <p id="sweep-status" class="fine" role="status"></p>
+    </form>
+
+    <p class="visitor" id="visitor" hidden></p>
+    <section id="ledger-board" class="ledger" data-show-empty="1">
+      <h2>Visitor ledger</h2>
+      <p class="fine">People who paid for one sweep. The note is theirs. The key is not stored. Amounts start in US dollars. Pounds, euros, and yuan use the 28 September 2026 conversion.</p>
+      <div class="currencies" role="group" aria-label="Currency">
+        <button type="button" data-currency="USD" aria-pressed="true">USD</button>
+        <button type="button" data-currency="GBP">GBP</button>
+        <button type="button" data-currency="EUR">EUR</button>
+        <button type="button" data-currency="CNY">CNY</button>
+      </div>
+      <ol id="donor-list"></ol>
+      <h3>Handles added by visitors</h3>
+      <div id="visitor-handles"></div>
+    </section>
+
+    <p class="fine">This list is separate from the station dial. A visitor sweep does not change “No reading” on the gauge, and it does not rewrite counts.json.</p>
+    <noscript><p>This page runs the sweep with JavaScript. The key is not in the page.</p></noscript>
+  </main>
+  <script src="assets/ledger.js"></script>
+  <script src="assets/contribute.js"></script>
+</body>
+</html>

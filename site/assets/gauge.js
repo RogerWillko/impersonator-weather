@@ -364,13 +364,17 @@
 
   function countsUrl() {
     var host = location.hostname;
-    if (host === "localhost" || host === "127.0.0.1") {
+    if (host === "localhost" || host === "127.0.0.1" || host === "") {
       var local = document.body.dataset.countsLocal || "../counts.json";
+      if (local !== "counts.json" && local !== "../counts.json") local = "../counts.json";
       return new URL(local, location.href).href;
     }
-    var repo = document.body.dataset.countsRepo;
+    var repo = document.body.dataset.countsRepo || "";
     var branch = document.body.dataset.countsBranch || "main";
     var path = document.body.dataset.countsPath || "counts.json";
+    if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo)) repo = "RogerWillko/impersonator-weather";
+    if (!/^[A-Za-z0-9_.-]+$/.test(branch)) branch = "main";
+    if (path !== "counts.json") path = "counts.json";
     return "https://raw.githubusercontent.com/" + repo + "/" + branch + "/" + path;
   }
 

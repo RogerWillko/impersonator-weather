@@ -1,0 +1,45 @@
+.sweep label {
+  display: block;
+  margin-top: 14px;
+}
+
+.sweep input,
+.sweep textarea {
+  display: block;
+  width: 100%;
+  max-width: 36rem;
+  margin-top: 6px;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--ink);
+  border: 1px solid rgba(215, 181, 109, 0.35);
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+}
+
+.sweep textarea { min-height: 4.5rem; resize: vertical; }
+
+.sweep button#run {
+  margin-top: 16px;
+  background: var(--brass);
+  color: #1a1206;
+  border: 0;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sweep button#run:disabled { opacity: 0.55; cursor: wait; }
+
+.cost-line {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.15rem;
+}
+
+.privacy-list {
+  margin: 8px 0 0;
+  padding-left: 1.2rem;
+}
+
+.privacy-list li { margin: 0 0 6px; }
+
+#sweep-status { min-height: 1.4em; }

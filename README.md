@@ -44,6 +44,12 @@ The page reads the raw log on GitHub. On localhost it reads `counts.json` beside
 
 `.github/workflows/nightly.yml` runs the sweep at 08:17 UTC and then waits between 1 and 40 minutes. It commits `counts.json` only. `.github/workflows/pages.yml` publishes the `site/` folder. GitHub will not accept those two files from a token that lacks the `workflow` scope. Grant it with `gh auth refresh -s workflow`, then `git push`.
 
+## Visitor sweeps
+
+`site/contribute.html` runs one X user search for elon, musk, and maye. The API key stays in the browser and is sent only to `https://api.x.com`. The page shows the ceiling first: about $0.30, £0.23, €0.26, and ¥2.01, from the 28 September 2026 conversion of a 30-profile cap. X bills dollars. The other three are approximate.
+
+The host copy of `site/contribute.php` re-scores the public profiles and appends a name, a note, and any new handles to `site/ledger.json`. The key is not in that file. The note is public, and a short word list is removed on save and again on display. That ledger does not change `counts.json` and does not move the station dial. GitHub Pages does not run the PHP, so a sweep there can call X and then has nowhere to save.
+
 ## Host
 
 Bluehost can serve the `site/` folder. See `UPLOAD.txt`. Do not mix it into the Scrollstime sites. After the Pages workflow is on `main`, the gauge is also at `https://rogerwillko.github.io/impersonator-weather/`.

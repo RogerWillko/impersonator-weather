@@ -1,0 +1,85 @@
+.ledger, .sweep {
+  position: relative;
+  z-index: 1;
+}
+
+.visitor {
+  margin: 0;
+  text-align: center;
+  color: var(--brass);
+}
+
+.ledger, .sweep {
+  border: 1px solid rgba(215, 181, 109, 0.35);
+  padding: 16px 18px 18px;
+  background: rgba(8, 10, 12, 0.55);
+}
+
+.ledger h2, .ledger h3, .sweep h2 {
+  margin: 0 0 8px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--brass);
+}
+
+.ledger h3 { margin-top: 18px; }
+
+.fine, .ledger li, .handle-list {
+  overflow-wrap: anywhere;
+}
+
+.fine {
+  color: var(--dim);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.currencies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.currencies button {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(215, 181, 109, 0.45);
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+
+.currencies button[aria-pressed="true"] {
+  background: var(--brass);
+  color: #1a1206;
+}
+
+.donor-list, .handle-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.donor-list li { margin: 0 0 12px; }
+
+.donor-name { font-weight: 600; }
+
+.donor-meta, .donor-note {
+  margin: 2px 0 0;
+  color: var(--dim);
+}
+
+.handle-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.handle-list a { color: var(--ink); }

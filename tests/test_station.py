@@ -1,6 +1,7 @@
 """The station log. A failed page must not become a count of zero."""
 
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -364,6 +365,50 @@ class PageCopyTests(unittest.TestCase):
         self.assertNotIn("localStorage", js)
         self.assertNotIn("sessionStorage", js)
         self.assertNotIn("cookie", js.lower())
+
+    def test_contribute_page_prices_the_sweep_and_keeps_the_key_in_the_browser(self):
+        page = (ROOT / "site" / "contribute.html").read_text(encoding="utf-8")
+        script = (ROOT / "site" / "assets" / "contribute.js").read_text(encoding="utf-8")
+        ledger = (ROOT / "site" / "assets" / "ledger.js").read_text(encoding="utf-8")
+        php = (ROOT / "site" / "contribute.php").read_text(encoding="utf-8")
+        words = (ROOT / "site" / "words.json").read_text(encoding="utf-8")
+        for blob in (page, script, ledger, php, words):
+            self.assertNotIn("2847", blob)
+            self.assertNotIn("2,847", blob)
+        gate = re.search(r'<input[^>]*id="gate"[^>]*>', page)
+        self.assertIsNotNone(gate)
+        self.assertIn('type="password"', gate.group(0))
+        self.assertNotIn("name=", gate.group(0))
+        self.assertIn('type="button"', page)
+        self.assertIn('id="run"', page)
+        self.assertNotIn("action=", page)
+        self.assertNotIn("method=", page)
+        for needle in ("$0.30", "£0.23", "€0.26", "¥2.01", "28 September 2026", "https://api.x.com"):
+            self.assertIn(needle, page)
+        self.assertIn("USD", page)
+        self.assertIn("GBP", page)
+        self.assertIn("EUR", page)
+        self.assertIn("CNY", page)
+        self.assertIn("https://api.x.com/2/users/search", script)
+        self.assertIn('redirect: "manual"', script)
+        self.assertIn('credentials: "omit"', script)
+        self.assertIn('referrerPolicy: "no-referrer"', script)
+        self.assertNotIn("localStorage", script)
+        self.assertNotIn("sessionStorage", script)
+        self.assertNotIn("cookie", script.lower())
+        self.assertNotIn("localStorage", ledger)
+        self.assertNotIn("sessionStorage", ledger)
+        self.assertNotIn("cookie", ledger.lower())
+        self.assertNotIn("api.x.com", php)
+        self.assertNotIn("Bearer", php)
+        self.assertNotIn("GITHUB", php)
+        self.assertIn("Too many profiles.", php)
+        self.assertIn("The ledger is full for now.", php)
+        self.assertNotIn("$profile['score']", php)
+        self.assertNotIn("$body['usd']", php)
+        gauge = (ROOT / "site" / "assets" / "gauge.js").read_text(encoding="utf-8")
+        self.assertIn('path !== "counts.json"', gauge)
+        self.assertIn("RogerWillko/impersonator-weather", gauge)
 
 
 if __name__ == "__main__":
