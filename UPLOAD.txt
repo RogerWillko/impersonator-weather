@@ -1,6 +1,6 @@
-Fake Elon weather is a static page. The number lives in the GitHub log, so the page does not need a new upload after each night.
+Fake Elon weather is a page on scrollstime.com. The number lives in the GitHub log, so the page does not need a new upload after each night.
 
-Upload the contents of site/ — index.html, compare.html, sources.json, robots.txt, assets/, and .htaccess — into their own folder on Bluehost. Do not put them in public_html/website_734ae7cd (scrollstime.com) or public_html/website_df1ed662 (scrollstime.online).
+Upload the contents of site/ — index.html, compare.html, sources.json, robots.txt, assets/, and .htaccess — into public_html/website_734ae7cd/weather/ on Bluehost. The address is https://scrollstime.com/weather/. The Night Grade board links to that page from a brass row under the photo. That row is in the Night Grade pages, packaged as scrollstime-nav.zip in the Night Grade site folder. Do not put this page in public_html/website_df1ed662 (scrollstime.online).
 
 Finder hides .htaccess. htaccess-upload.txt is the same file. Upload that and rename it to .htaccess with hidden files shown.
 

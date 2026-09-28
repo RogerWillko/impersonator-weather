@@ -298,6 +298,46 @@ blockquote p {
   font-size: 0.72rem;
 }
 
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0 0 22px;
+}
+
+.pages a {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--dim);
+  padding: 0.35rem 0.1rem;
+}
+
+.pages a[aria-current="page"] {
+  color: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--brass);
+}
+
+.pages a.page-weather {
+  color: #1a1206;
+  background: var(--brass);
+  padding: 0.45rem 0.7rem;
+  letter-spacing: 0.05em;
+  font-size: 0.78rem;
+}
+
+.pages a.page-weather[aria-current="page"] {
+  color: #1a1206;
+  box-shadow: none;
+}
+
+.pages a:hover { color: var(--ink); }
+
+.pages a.page-weather:hover { color: #1a1206; background: #f3d7a2; }
+
 .links {
   display: flex;
   flex-wrap: wrap;

@@ -219,7 +219,8 @@
   function countsUrl() {
     var host = location.hostname;
     if (host === "localhost" || host === "127.0.0.1") {
-      return new URL("../counts.json", location.href).href;
+      var local = document.body.dataset.countsLocal || "../counts.json";
+      return new URL(local, location.href).href;
     }
     var repo = document.body.dataset.countsRepo;
     var branch = document.body.dataset.countsBranch || "main";
