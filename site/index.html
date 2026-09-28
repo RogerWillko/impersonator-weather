@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>No reading · Fake Elon weather</title>
+  <meta name="description" content="A public weather gauge for X accounts that score like Elon impersonators. Read only.">
+  <meta name="theme-color" content="#10161c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/gauge.css">
+</head>
+<body data-weather="none" data-counts-repo="RogerWillko/impersonator-weather" data-counts-branch="main" data-counts-path="counts.json">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="flash" aria-hidden="true"></div>
+  <main class="screen">
+    <header class="mast">
+      <p class="kicker">Public station · read only</p>
+      <h1>Fake Elon weather</h1>
+      <p class="place">Handles and bios · elon · musk · maye</p>
+      <p id="banner" class="banner" hidden>Specimen drawing. These figures are not the station log.</p>
+    </header>
+    <div class="stage">
+      <section class="dial" id="dial" role="img" aria-label="No reading yet">
+        <svg id="face" viewBox="0 0 400 400" aria-hidden="true"></svg>
+        <div class="readout">
+          <p class="condition" id="condition">No reading</p>
+          <p class="count" id="count">—</p>
+          <p class="unit" id="unit">flagged active</p>
+          <p class="dormant" id="dormant">Dormant · —</p>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="log-title">
+        <div class="panel-head">
+          <h2 id="log-title">On the log</h2>
+          <p class="forecast" id="forecast">Waiting for the first sweep.</p>
+          <p class="asof" id="asof"></p>
+        </div>
+        <div class="log" id="log" tabindex="0">
+          <p class="empty">No handles on the log.</p>
+        </div>
+      </section>
+    </div>
+    <footer class="foot">
+      <details class="method">
+        <summary>How a handle gets flagged</summary>
+        <p>The nightly sweep reads X’s public people search for elon, musk, and maye. It does not log in, post, follow, or send a message. A handle is appended when the public signals add up to 4 or more: one character off <span class="mono">elonmusk</span> (4), account under 90 days (2), followers divided by following over 3 (1), empty bio (1), default picture (2), two companies in the bio (2), or Tesla plus SpaceX plus xAI in the same bio (3).</p>
+        <p>Active means the account was under 90 days old on the day it was logged. Dormant means it was older. The station does not see whether they posted that day. The dial’s squall band is the low thousands of active flags. Banked dormant flags are the tens of thousands, and deep is the hundreds of thousands.</p>
+        <p>A page with no accounts is a missed reading. The last count stays. A parsed page where nothing scores high is a real clear reading, and the number is zero. Known-good handles and bios that say parody, fan account, or not the real one stay off the log. This is a station score, not a finding that someone committed fraud.</p>
+      </details>
+      <p class="links">
+        <a id="repo" href="https://github.com/RogerWillko/impersonator-weather">Source</a>
+        <a id="raw" href="https://raw.githubusercontent.com/RogerWillko/impersonator-weather/main/counts.json">Log file</a>
+      </p>
+      <noscript><p>This station paints the reading with JavaScript. The log file is counts.json.</p></noscript>
+    </footer>
+  </main>
+  <script src="assets/gauge.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Fake Elon weather is a static page. The number lives in the GitHub log, so the page does not need a new upload after each night.
+
+Upload the contents of site/ — index.html, robots.txt, assets/, and .htaccess — into their own folder on Bluehost. Do not put them in public_html/website_734ae7cd (scrollstime.com) or public_html/website_df1ed662 (scrollstime.online).
+
+Finder hides .htaccess. htaccess-upload.txt is the same file. Upload that and rename it to .htaccess with hidden files shown.
+
+The page reads https://raw.githubusercontent.com/RogerWillko/impersonator-weather/main/counts.json
+A local preview is: python3 -m http.server 8766
+from this folder, then open http://127.0.0.1:8766/site/
+Add ?preview=1 to see a specimen squall. That drawing is not the log.

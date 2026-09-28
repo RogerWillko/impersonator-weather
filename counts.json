@@ -1,0 +1,71 @@
+{
+  "run": null,
+  "attempted_at": "2026-09-28T14:57:44Z",
+  "status": "held",
+  "reason": "login_wall",
+  "active": null,
+  "dormant": null,
+  "unknown": null,
+  "flagged": null,
+  "seen": null,
+  "added": 0,
+  "high_score": 4,
+  "scale": {
+    "active": [
+      {
+        "id": "clear",
+        "label": "Clear",
+        "at": 0
+      },
+      {
+        "id": "breeze",
+        "label": "Breeze",
+        "at": 1
+      },
+      {
+        "id": "wind",
+        "label": "Wind",
+        "at": 200
+      },
+      {
+        "id": "squall",
+        "label": "Squall",
+        "at": 1000
+      },
+      {
+        "id": "storm",
+        "label": "Storm",
+        "at": 5000
+      },
+      {
+        "id": "whiteout",
+        "label": "Whiteout",
+        "at": 20000
+      }
+    ],
+    "dormant": [
+      {
+        "id": "quiet",
+        "label": "Quiet",
+        "at": 0
+      },
+      {
+        "id": "banked",
+        "label": "Banked",
+        "at": 10000
+      },
+      {
+        "id": "deep",
+        "label": "Deep",
+        "at": 100000
+      },
+      {
+        "id": "buried",
+        "label": "Buried",
+        "at": 1000000
+      }
+    ]
+  },
+  "accounts": [],
+  "chain": "9d142e9c86f4e97b6440112b17ed92d85850c8f143433f0756b11ef19a6aa43b"
+}

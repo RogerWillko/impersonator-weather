@@ -1,0 +1,10 @@
+# Handles that may match a search and must not be flagged.
+# One handle per line, without @. Lines starting with # are notes.
+elonmusk
+mayemusk
+kimbalmusk
+tesla
+spacex
+xai
+neuralink
+boringcompany
