@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public readings · Fake Elon weather</title>
+  <meta name="description" content="Four public datasets on their own dials: this station’s impersonator log, Jamazel’s stated ranges, and two older counts of @elonmusk’s followers.">
+  <meta name="theme-color" content="#10161c">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/compare.css">
+</head>
+<body data-counts-repo="RogerWillko/impersonator-weather" data-counts-branch="main" data-counts-path="counts.json">
+  <main class="desk">
+    <header class="mast">
+      <p class="kicker">Public readings · compared on one ruler</p>
+      <h1>The weather, from four places</h1>
+      <p class="lede">Each card is someone else’s public dataset, or this station’s own log, drawn on the same dial. The place the data lives is on the card. The questions stay apart, so the page never folds them into one number.</p>
+      <p class="place">Repo <a href="https://github.com/RogerWillko/impersonator-weather">RogerWillko/impersonator-weather</a> · branch <span class="mono">main</span> · <span class="mono">site/compare.html</span></p>
+    </header>
+
+    <section class="site-block" aria-labelledby="site-title">
+      <h2 id="site-title">Repo and site</h2>
+      <p>The public repo is <a href="https://github.com/RogerWillko/impersonator-weather">RogerWillko/impersonator-weather</a>. Its description is “A public weather gauge for accounts that score like Elon impersonators. Read only.” The default branch is <span class="mono">main</span>. The log is <a href="https://raw.githubusercontent.com/RogerWillko/impersonator-weather/main/counts.json">counts.json</a> at the root of that branch.</p>
+      <dl class="facts">
+        <div>
+          <dt>Gauge</dt>
+          <dd><a href="index.html">index.html</a></dd>
+        </div>
+        <div>
+          <dt>This page</dt>
+          <dd><span class="mono">site/compare.html</span></dd>
+        </div>
+        <div>
+          <dt>Inputs</dt>
+          <dd><a href="sources.json">sources.json</a></dd>
+        </div>
+        <div>
+          <dt>This browser reads</dt>
+          <dd id="read-from" class="mono">https://raw.githubusercontent.com/RogerWillko/impersonator-weather/main/counts.json</dd>
+        </div>
+      </dl>
+      <p class="fine">The gauge, this page, and the input file live in the <span class="mono">site</span> folder. On this computer the station card reads <span class="mono">counts.json</span> beside that folder. The public page reads the raw log on <span class="mono">main</span>.</p>
+    </section>
+
+    <section class="consensus" aria-labelledby="agree-title">
+      <h2 id="agree-title">Where the readings sit</h2>
+      <div class="agree">
+        <article>
+          <h3>Impersonators</h3>
+          <p>The impersonator weather is a stated range, with this station’s log still empty beside it. On 11 July 2026, Jamazel (<span class="mono">@JRAzeltine</span>) wrote that active impersonators are likely in the low thousands, and that dormant fakes run to the tens and hundreds of thousands. On this ruler that is Squall for the active line, from 1,000 up to Storm at 5,000, and Banked through Deep for the dormant line, from 10,000 up to Buried at 1,000,000. This station tried on 28 September 2026 and the public search came back as a login wall, so its card reads No reading. One published note and no second list of handles means there is no shared integer.</p>
+        </article>
+        <article>
+          <h3>Followers</h3>
+          <p>The follower weather is Whiteout on both dated counts. In May 2022, SparkToro and Followerwonk published 70.23% of <span class="mono">@elonmusk</span>’s 93,452,093 followers as unlikely to be authentic, active users who see his tweets. In August 2023, Travis Brown’s gist counted 62,500,641 follower IDs with zero tweets. Both are past 20,000 on this dial. Jamazel’s note points at those older audits, about 70% inauthentic or inactive and about 40% with zero tweets, and then states the impersonator ranges above them. A follower card answers who follows <span class="mono">@elonmusk</span>. An impersonator card answers who looks like him.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="ruler" id="ruler">Active ruler: Clear 0, Breeze 1, Wind 200, Squall 1,000, Storm 5,000, Whiteout 20,000. Dormant ruler: Quiet 0, Banked 10,000, Deep 100,000, Buried 1,000,000. A range needle sits in the middle of the span the words cover. A count past Whiteout pegs at the end of the dial.</p>
+
+    <section class="group" aria-labelledby="impersonators-title">
+      <header class="group-head">
+        <h2 id="impersonators-title">Impersonator handles</h2>
+        <p>Accounts that look like Elon. Active on this station means the account was under 90 days old on the day it was logged.</p>
+      </header>
+      <div class="grid">
+        <article class="card" id="station">
+          <header class="card-top">
+            <p class="who">This station</p>
+            <h3>Scored handles</h3>
+            <p class="where">Lives at <a href="https://raw.githubusercontent.com/RogerWillko/impersonator-weather/main/counts.json">raw.githubusercontent.com · counts.json</a></p>
+            <p class="when" id="station-asof">Tried 28 Sep 2026, 14:57 UTC</p>
+          </header>
+          <div class="reading" id="station-reading" data-weather="none">
+            <div class="mini" role="img" aria-label="No reading">
+              <svg class="face" viewBox="0 0 400 400" aria-hidden="true" data-scale="active" data-mode="empty"></svg>
+            </div>
+            <div class="read">
+              <p class="condition" id="station-condition">No reading</p>
+              <p class="count is-empty" id="station-count">—</p>
+              <p class="unit">flagged active</p>
+              <p class="dormant" id="station-dormant">Dormant · —</p>
+            </div>
+          </div>
+          <p class="note" id="station-note">X sent the search page to a login wall. The count was not reset.</p>
+          <p class="fine">This card follows the log. The sentences at the top were written on 28 September 2026, when that log had no number. The specimen on the station gauge is a drawing and is kept off this page.</p>
+        </article>
+
+        <article class="card" id="jamazel">
+          <header class="card-top">
+            <p class="who">Jamazel · @JRAzeltine</p>
+            <h3>A stated range</h3>
+            <p class="where">Lives at <a href="https://x.com/JRAzeltine/status/2075999787631984999">x.com/JRAzeltine/status/2075999787631984999</a></p>
+            <p class="when">11 July 2026, 17:44 UTC</p>
+          </header>
+          <blockquote>
+            <p>Active impersonators/scams: likely low thousands at any time. But dormant/inactive fakes? Tens to hundreds of thousands more.</p>
+            <p>Key data: Older audits showed ~70% of Elon’s followers fake/spam/inactive. Recent analyses: 40%+ of his followers have 0 tweets or near-zero activity.</p>
+          </blockquote>
+          <div class="reading" data-weather="squall">
+            <div class="mini" role="img" aria-label="Squall, low thousands, 1,000 to 4,999">
+              <svg class="face" viewBox="0 0 400 400" aria-hidden="true" data-scale="active" data-mode="range" data-low="1000" data-high="4999"></svg>
+            </div>
+            <div class="read">
+              <p class="condition">Squall</p>
+              <p class="count">1,000–4,999</p>
+              <p class="unit">active · low thousands</p>
+              <p class="dormant">His words, mapped onto the active ruler</p>
+            </div>
+          </div>
+          <div class="reading" data-weather="span">
+            <div class="mini" role="img" aria-label="Banked through Deep, tens to hundreds of thousands, 10,000 to 999,999">
+              <svg class="face" viewBox="0 0 400 400" aria-hidden="true" data-scale="dormant" data-mode="range" data-low="10000" data-high="999999"></svg>
+            </div>
+            <div class="read">
+              <p class="condition">Banked–Deep</p>
+              <p class="count">10,000–999,999</p>
+              <p class="unit">dormant · tens to hundreds of thousands</p>
+              <p class="dormant">The same post, on the dormant ruler</p>
+            </div>
+          </div>
+          <p class="fine">The post published words, not a single count. Low thousands is the Squall band. The dormant words cover Banked and Deep. The needle sits midway along that span. Read on 28 September 2026. This card does not refresh.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="group" aria-labelledby="followers-title">
+      <header class="group-head">
+        <h2 id="followers-title">Followers of @elonmusk</h2>
+        <p>Accounts that follow him. These counts are three and four years older than the station, and they answer a different question than the cards above.</p>
+      </header>
+      <div class="grid">
+        <article class="card" id="sparktoro" data-followers="93452093" data-tweeted="26878729" data-product="65631405" data-secondary="6294998">
+          <header class="card-top">
+            <p class="who">SparkToro and Followerwonk</p>
+            <h3>Unlikely to be authentic and active</h3>
+            <p class="where">Lives at <a href="https://sparktoro.com/blog/sparktoro-followerwonk-joint-twitter-analysis-19-42-of-active-accounts-are-fake-or-spam/">sparktoro.com · 15 May 2022</a></p>
+            <p class="when">Followers counted 14 May 2022 · Casey Henry, Rand Fishkin, Marc Mims</p>
+          </header>
+          <div class="reading" data-weather="whiteout">
+            <div class="mini" role="img" aria-label="Whiteout, 65,631,405 followers unlikely to be authentic and active">
+              <svg class="face" viewBox="0 0 400 400" aria-hidden="true" data-scale="active" data-mode="point" data-value="65631405"></svg>
+            </div>
+            <div class="read">
+              <p class="condition">Whiteout</p>
+              <p class="count" id="spark-product">65,631,405</p>
+              <p class="unit">followers · this page’s product</p>
+              <p class="dormant">70.23% of 93,452,093</p>
+            </div>
+          </div>
+          <p class="note">The blog printed 70.23% of 93,452,093 followers (as of 14 May 2022) as unlikely to be authentic, active users who see his tweets. 65,631,405 is this page’s product, that percent times that base, rounded half up.</p>
+          <p class="note">Of the 26,878,729 followers who had tweeted in the previous 90 days, the same post published 23.42% as likely fake or spam. This page’s product there is <span id="spark-active-product">6,294,998</span>. That product is also past Whiteout. It is still a count of followers.</p>
+          <p class="fine" data-platform="8555" data-sample="44058" data-percent="19.42">The same post’s sample of the whole service was 8,555 of 44,058 recently active public accounts, published as 19.42%. That figure is context on this card. Their definition: accounts that do not regularly have a human personally composing tweets, consuming the timeline, or engaging. Read on 28 September 2026. This card does not refresh.</p>
+        </article>
+
+        <article class="card" id="brown" data-follower-ids="153209283" data-zero-tweets="62500641" data-zero-followers="65312713" data-default-image="38035372">
+          <header class="card-top">
+            <p class="who">Travis Brown</p>
+            <h3>Follower IDs with zero tweets</h3>
+            <p class="where">Lives at <a href="https://gist.github.com/travisbrown/82de45bccd760032635ebef7bfeb4d83">gist.github.com/travisbrown · 17 August 2023</a></p>
+            <p class="when">Scrape finished 17 August 2023 · oldest snapshots 27 July 2023</p>
+          </header>
+          <div class="reading" data-weather="whiteout">
+            <div class="mini" role="img" aria-label="Whiteout, 62,500,641 followers with zero tweets">
+              <svg class="face" viewBox="0 0 400 400" aria-hidden="true" data-scale="active" data-mode="point" data-value="62500641"></svg>
+            </div>
+            <div class="read">
+              <p class="condition">Whiteout</p>
+              <p class="count">62,500,641</p>
+              <p class="unit">followers with zero tweets</p>
+              <p class="dormant">40.8% of the accounts still active in the snapshot</p>
+            </div>
+          </div>
+          <p class="note">The gist lists 153,209,283 follower IDs. The table gives 62,500,641 with zero tweets, and he states that as 40.8%. The same table gives 65,312,713 with zero followers, stated as 42.6%. He also counts 38,035,372 using the default profile image, which he describes as just under a quarter.</p>
+          <p class="fine">These are published counts, not a product of this page. Matt Binder’s <a href="https://mashable.com/article/elon-musk-x-twitter-follower-data">Mashable article</a> discusses the gist. The dataset on this card is the gist. Read on 28 September 2026. This card does not refresh.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <details class="method">
+        <summary>How a card got onto this page</summary>
+        <p>A card needs a public page, a date, and a figure or a stated range about Elon accounts. This station’s log is the live card. Jamazel’s post is the impersonator range. The SparkToro and Followerwonk blog, and Travis Brown’s gist, are the follower counts. A live sample that changes without a pinned method date stays off the page.</p>
+        <p>The dial marks are the station’s own bands. Putting a follower count on that dial shows how large it is against the impersonator ruler. It does not turn the follower count into a count of impersonators. Frozen cards were copied on 28 September 2026. Only the station card asks the log again.</p>
+      </details>
+      <p class="links">
+        <a href="index.html">Station gauge</a>
+        <a href="sources.json">Source file</a>
+        <a href="https://github.com/RogerWillko/impersonator-weather">Repo</a>
+      </p>
+      <noscript><p>The dials are drawn with JavaScript. The figures and the links above are in the page.</p></noscript>
+    </footer>
+  </main>
+  <script src="assets/compare.js"></script>
+</body>
+</html>

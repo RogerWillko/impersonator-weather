@@ -290,6 +290,81 @@ class PageCopyTests(unittest.TestCase):
             self.assertIn(str(band["at"]), js)
             self.assertIn(band["id"], js)
 
+    def test_published_inputs_are_on_the_page_and_in_the_source_file(self):
+        page = (ROOT / "site" / "compare.html").read_text(encoding="utf-8")
+        raw = (ROOT / "site" / "sources.json").read_text(encoding="utf-8")
+        needles = (
+            "70.23",
+            "93452093",
+            "26878729",
+            "23.42",
+            "62500641",
+            "65312713",
+            "38035372",
+            "153209283",
+            "8555",
+            "44058",
+            "19.42",
+            "https://gist.github.com/travisbrown/82de45bccd760032635ebef7bfeb4d83",
+            "https://x.com/JRAzeltine/status/2075999787631984999",
+            "https://sparktoro.com/blog/sparktoro-followerwonk-joint-twitter-analysis-19-42-of-active-accounts-are-fake-or-spam/",
+            "1000",
+            "4999",
+            "10000",
+            "999999",
+        )
+        for needle in needles:
+            self.assertIn(needle, page)
+            self.assertIn(needle, raw)
+        self.assertNotIn("2847", page)
+        self.assertNotIn("2,847", page)
+        self.assertNotIn("2847", raw)
+        index = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("compare.html", index)
+        for needle in (
+            "https://github.com/RogerWillko/impersonator-weather",
+            "A public weather gauge for accounts that score like Elon impersonators. Read only.",
+            "site/compare.html",
+            "https://raw.githubusercontent.com/RogerWillko/impersonator-weather/main/counts.json",
+        ):
+            self.assertIn(needle, page)
+
+    def test_products_are_the_published_percent_times_the_published_base(self):
+        doc = json.loads((ROOT / "site" / "sources.json").read_text(encoding="utf-8"))
+        spark = next(item for item in doc["sources"] if item["id"] == "sparktoro")
+        page = (ROOT / "site" / "compare.html").read_text(encoding="utf-8")
+
+        def product(base, percent):
+            whole, frac = str(percent).split(".")
+            digits = int(whole + frac)
+            den = (10 ** len(frac)) * 100
+            return (base * digits + den // 2) // den
+
+        primary = product(spark["followers"], spark["unlikely_authentic_active_percent"])
+        secondary = product(spark["tweeted_in_90_days"], spark["fake_or_spam_among_those_percent"])
+        self.assertEqual(primary, 65631405)
+        self.assertEqual(secondary, 6294998)
+        self.assertIn(str(primary), page)
+        self.assertIn(str(secondary), page)
+        self.assertIn("65631405", page)
+        jamazel = next(item for item in doc["sources"] if item["id"] == "jamazel")
+        self.assertEqual(jamazel["active_low"], 1000)
+        self.assertEqual(jamazel["active_high"], 4999)
+        self.assertEqual(jamazel["dormant_low"], 10000)
+        self.assertEqual(jamazel["dormant_high"], 999999)
+
+    def test_compare_script_uses_the_station_scale_and_skips_the_specimen(self):
+        js = (ROOT / "site" / "assets" / "compare.js").read_text(encoding="utf-8")
+        for band in station.SCALE["active"] + station.SCALE["dormant"]:
+            self.assertIn(band["label"], js)
+            self.assertIn(str(band["at"]), js)
+            self.assertIn(band["id"], js)
+        self.assertIn("halfUp", js)
+        self.assertNotIn("2847", js)
+        self.assertNotIn("localStorage", js)
+        self.assertNotIn("sessionStorage", js)
+        self.assertNotIn("cookie", js.lower())
+
 
 if __name__ == "__main__":
     unittest.main()

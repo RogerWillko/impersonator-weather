@@ -40,6 +40,8 @@ The default wait between requests is a random 4 to 12 seconds. `--pause 0` skips
 
 The page reads the raw log on GitHub. On localhost it reads `counts.json` beside this file. `?preview=1` draws a specimen squall so the gauge can be looked at. Those figures are not the log.
 
+`site/compare.html` is the comparison page. It puts this station’s log next to three other public datasets, each on its own dial: Jamazel’s 11 July 2026 range, the SparkToro and Followerwonk follower audit of 15 May 2022, and Travis Brown’s follower gist of 17 August 2023. The inputs are in `site/sources.json`. Follower counts stay on their own cards. The page does not blend them with the impersonator range.
+
 `.github/workflows/nightly.yml` runs the sweep at 08:17 UTC and then waits between 1 and 40 minutes. It commits `counts.json` only. `.github/workflows/pages.yml` publishes the `site/` folder. GitHub will not accept those two files from a token that lacks the `workflow` scope. Grant it with `gh auth refresh -s workflow`, then `git push`.
 
 ## Host

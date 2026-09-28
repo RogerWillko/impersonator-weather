@@ -1,0 +1,60 @@
+{
+  "read_on": "2026-09-28",
+  "sources": [
+    {
+      "id": "station",
+      "live": true,
+      "who": "This station",
+      "question": "impersonators",
+      "location": "https://raw.githubusercontent.com/RogerWillko/impersonator-weather/main/counts.json"
+    },
+    {
+      "id": "jamazel",
+      "live": false,
+      "who": "Jamazel",
+      "handle": "JRAzeltine",
+      "question": "impersonators",
+      "location": "https://x.com/JRAzeltine/status/2075999787631984999",
+      "published": "2026-07-11T17:44:54Z",
+      "active_words": "low thousands",
+      "active_low": 1000,
+      "active_high": 4999,
+      "dormant_words": "tens to hundreds of thousands",
+      "dormant_low": 10000,
+      "dormant_high": 999999
+    },
+    {
+      "id": "sparktoro",
+      "live": false,
+      "who": "SparkToro and Followerwonk",
+      "authors": ["Casey Henry", "Rand Fishkin", "Marc Mims"],
+      "question": "followers",
+      "location": "https://sparktoro.com/blog/sparktoro-followerwonk-joint-twitter-analysis-19-42-of-active-accounts-are-fake-or-spam/",
+      "published": "2022-05-15",
+      "followers_as_of": "2022-05-14",
+      "followers": 93452093,
+      "unlikely_authentic_active_percent": "70.23",
+      "tweeted_in_90_days": 26878729,
+      "fake_or_spam_among_those_percent": "23.42",
+      "platform_fake_or_spam": 8555,
+      "platform_sample": 44058,
+      "platform_percent": "19.42"
+    },
+    {
+      "id": "brown",
+      "live": false,
+      "who": "Travis Brown",
+      "question": "followers",
+      "location": "https://gist.github.com/travisbrown/82de45bccd760032635ebef7bfeb4d83",
+      "published": "2023-08-17",
+      "oldest_snapshot": "2023-07-27",
+      "follower_ids": 153209283,
+      "zero_tweets": 62500641,
+      "zero_tweets_percent": "40.8",
+      "zero_followers": 65312713,
+      "zero_followers_percent": "42.6",
+      "default_image": 38035372,
+      "discussion": "https://mashable.com/article/elon-musk-x-twitter-follower-data"
+    }
+  ]
+}
